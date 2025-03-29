@@ -38,12 +38,16 @@ int main(int argc, char** argv)
       setup(n, &A[0]);
 
       // insert your timer code here
+      auto start = std::chrono::high_resolution_clock::now();
 
       // invoke method to perform the sum
       t = sum(n, &A[0]);
 
       // insert your end timer code here, and print out elapsed time for this problem size
-
+      auto end = std::chrono::high_resolution_clock::now();
+      std::chrono::duration<double> elapsed = end - start;
+      double runtime = elapsed.count(); // in seconds
+      printf(" Runtime = %lf seconds\n", runtime);
       printf(" Sum result = %lf \n",t);
 
    } // end loop over problem sizes
